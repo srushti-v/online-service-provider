@@ -1,0 +1,33 @@
+{% load static %}
+{% include 'provider_header.html' %}
+<hr>
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0 text-white">Update Service Status</h4>
+            <h6 class="text-warning"> {{msg}}</h6>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="status" class="form-label">Service Status</label>
+                    <select class="form-control" id="status" name="status" required>
+                        <option value="confirmed"> confirmed</option>
+                        <option value="completed"> completed</option>
+                        <option value="cancelled"> cancelled</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="charges" class="form-label">Min Charges</label>
+                    <input type="number" class="form-control" id="charges" name="charges" required>
+                </div>
+
+
+                <button type="submit" class="btn btn-success w-100">Book Service</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}

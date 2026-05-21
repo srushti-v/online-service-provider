@@ -1,0 +1,32 @@
+{% load static %}
+{% include 'user_header.html' %}
+
+<hr class="border border-2 border-success">
+<div class="container mt-5">
+    <h2 class="mb-4">Advanced Service Payment</h2>
+
+
+   <form  method="POST">
+
+{% csrf_token %}
+
+<script
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_Z1qzBJgJYDcceP"
+    data-amount={{amount}}00
+    data-buttontext="Pay Service Amount"
+    data-name="Service Provider App"
+    data-description="Service Amount"
+    data-image=""
+    data-prefill.name="Customer"
+    data-prefill.email="useremail@gmail.com"
+    data-theme.color="#F37254"></script>
+<input type="hidden" custom="Hidden Element" name="hidden">
+</form>
+
+
+
+</div>
+
+</div>
+{% include 'footer.html' %}

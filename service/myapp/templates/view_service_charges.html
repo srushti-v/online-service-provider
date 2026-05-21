@@ -1,0 +1,52 @@
+{% load static %}
+{% include 'user_header.html' %}
+
+<hr class="border border-2 border-success">
+<div class="container mt-5">
+    <h2 class="mb-4">Service Charges</h2>
+
+    {% if udata %}
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Provider ID</th>
+                    <th>Service Name</th>
+                    <th>Base Charge</th>
+                    <th>Per Hour Charge</th>
+                    <th>Per Day Charge</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for service in udata %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ service.provider_id }}</td>
+                    <td>{{ service.service_name }}</td>
+                    <td>₹{{ service.service_charge }}</td>
+                    <td>
+                        {% if service.per_hour_charge %}
+                            ₹{{ service.per_hour_charge }}
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if service.per_day_charge %}
+                            ₹{{ service.per_day_charge }}
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </td>
+
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">No services available.</div>
+    {% endif %}
+</div>
+{% include 'footer.html' %}

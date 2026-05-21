@@ -1,0 +1,45 @@
+{% load static %}
+<html>
+    <head>
+        <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" type="text/css">
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    </head>
+
+    <body>
+        <div class="container mt-3 p-3">
+           <div class="row mt-2 mb-3">
+            <form method="post">
+                {% csrf_token %}
+                <div class="card shadow-lg">
+                    <div class="card-header text-uppercase  text-center shadow-lg mt-2 bg-secondary">
+                        <h1>user-login</h1>
+                    </div>
+
+                    <div class="card-body">
+                        
+                        <div class="mt-3 mb-3">
+                            <label>Username :</label>
+                            <input type="text" name="Username" class="form-control border border-1 border-dark ">
+                        </div>
+
+                        <div class="mt-3 mb-3">
+                            <label>Password :</label>
+                            <input type="password" name="password" class="form-control border border-1 border-dark">
+                        </div>
+
+                        <div class="mt-3 mb-3">
+                            <label>Utype:</label>
+                            <input type="text" name="Utype" class="form-control border border-1 border-dark">
+                        </div>
+                        <div class="mt-3 mb-3">
+                            <button class="btn btn-success w-100">Login</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+           </div>            
+
+        </div>
+    </body>
+</html>

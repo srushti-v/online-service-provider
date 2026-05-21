@@ -1,0 +1,41 @@
+{% load static %}
+{% include 'user_header.html' %}
+
+<hr class="border border-2 border-success">
+<div class="container mt-5">
+    <h2 class="mb-4">Service Booking Status</h2>
+
+
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Booking Id</th>
+                    <th>Service Name</th>
+                    <th>Booking Date</th>
+                    <th>Service Date</th>
+                    <th>Address</th>
+                    <th>Service Description</th>
+                    <th>Service Status</th>
+                    <th> Action </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for service in udata %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ service.id }}</td>
+                    <td>{{ service.service }}</td>
+                    <td>{{ service.booking_date }}</td>
+                    <td>{{ service.scheduled_date }}</td>
+                    <td>{{ service.address }}</td>
+                    <td>{{ service.description }}</td>
+                    <td>{{ service.status }}</td>
+                    <td><a href="{% url 'view_charges' service.charges service.id %}"> View Approx Charges </a> </td>
+                   </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+</div>
+{% include 'footer.html' %}

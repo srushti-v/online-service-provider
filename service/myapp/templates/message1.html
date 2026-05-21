@@ -1,0 +1,17 @@
+{% load static %}
+{% include 'user_header.html' %}
+
+<hr class="border border-2 border-success">
+
+<div class="container mt-5 text-center">
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Alert!</h4>
+        <p class="fs-5">Already Paid</p>
+        <hr>
+
+    </div>
+
+    <a href="{% url 'user_home' %}" class="btn btn-primary mt-4">Go to Dashboard</a>
+</div>
+
+{% include 'footer.html' %}

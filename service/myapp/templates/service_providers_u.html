@@ -1,0 +1,29 @@
+{% load static %}
+{% include 'user_header.html' %}
+
+<hr class="border border-2 border-success">
+<div class="container mt-5">
+    <div class="row">
+        <h2 class="mb-4">List of Services Providers</h2>
+        {% for r in data %}
+        <div class="col-lg-3">
+          <img src="../media/{{r.profile}}" style="width:200px;height:200px">
+            <h5> Provider: {{r.firstname}}{{r.lastname}}</h5>
+            <p>Address: {{r.address}}</p>
+
+            <p class="fs-5"> Mobile No: {{r.mobile_no}}</p>
+
+            <p>
+                <a href="{% url 'view_service_charges' r.email %}"> <button class="btn btn-success">  Service Charges</button></a>
+
+                <a href="{% url 'book_service' r.id %}">
+                    <button class="btn btn-danger"> Book Service</button>
+                </a>
+            </p>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+{% include 'footer.html' %}

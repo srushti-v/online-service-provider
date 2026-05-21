@@ -1,0 +1,58 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+</head>
+<body>
+ <div class="container">
+     <div class="row">
+         <h1>Booking Details</h1>
+         <table class="table table-border table-stripped">
+             <thead class="table table-dark">
+             <tr>
+                 <th>#</th>
+                 <th>service</th>
+                 <th>customer-name</th>
+                 <th>customer-contact</th>
+                 <th>booking-date</th>
+                 <th>scheduled-date</th>
+                 <th>address</th>
+                 <th>no-of-hours</th>
+                 <th>no-of-days</th>
+                 <td>status</td>
+                 <td>acttion</td>
+             </tr>
+             </thead>
+             <tbody>
+                   {% for r in data %}
+              <tr>
+                 <td>{{forloop.counter}}</td>
+                  <td>{{r.service}}</td>
+                  <td>{{r.customer_name}}</td>
+                  <td>{{r.customer_contact}}</td>
+                  <td>{{r.booking_date}}</td>
+                  <td>{{r.scheduled_date}}</td>
+                  <td>{{r.address}}</td>
+                  <td>{{r.no_of_hours}}</td>
+                  <td>{{r.no_of_days}}</td>
+                  <td>{{r.status}}</td>
+                  <td>
+                      <a href="{% url 'Booking_del' r.id %}">
+                       delete</a>
+                  </td>
+
+                  <td>
+                    <a href="{% url 'Booking_edit' r.id %}">edit</a>
+                </td>
+
+
+              </tr>
+                   {% endfor %}
+             </tbody>
+         </table>
+     </div>
+ </div>
+
+</body>
+</html>

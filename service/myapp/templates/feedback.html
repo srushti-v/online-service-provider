@@ -1,0 +1,51 @@
+{% load static %}
+{% include 'user_header.html' %}
+<hr>
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0 text-white">Give Feedback</h4>
+            <h6 class="text-warning"> {{msg}}</h6>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label  class="form-label">Enter Service Name</label>
+                    <select class="form-select" name="service_name" required>
+                     {% for s in services %}
+                     <option value="{{ s.service_name }}">{{ s.service_name }}</option>
+                    {% endfor %}
+                    </select>
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="booking" class="form-label">Booking Id</label>
+                    <input type="text" class="form-control" id="booking" name="booking" required>
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="customer_name" class="form-label">customer name</label>
+                    <input type="text" class="form-control" id="customer_name" name="customer_name" required>
+
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="rating" class="form-label">rating</label>
+                    <input type="number" min="1" max="5" class="form-control" id="rating" name="rating" placeholder="eg: no of days servicer or no of hours or add proper description about the service you want">
+                </div>
+
+                <div class="mb-3">
+                    <label for="comments" class="form-label">comments</label>
+                    <input type="text"  class="form-control" id="comments" name="comments" placeholder="eg: no of days servicer or no of hours or add proper description about the service you want">
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">Book Service</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}

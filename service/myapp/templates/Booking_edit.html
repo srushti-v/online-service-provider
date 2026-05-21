@@ -1,0 +1,79 @@
+{% load static %}
+<html>
+    <head>
+        <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" type="text/css">
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    </head>
+    <body>
+        <div class="container mt-3 p-3">
+            <div class="row mt-3 p-3">
+                {% for r in data %}
+                <h4 class="text-success"> {{success}}</h4>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="card shadow-lg p-3">
+                        <div class="card-header bg-secondary  text-white text-center text-uppercase">
+                            <h1>service-booking</h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="mt-3 mb-3">
+                                <label>Services :</label>
+                                 <input type="text" name="service" value="{{r.service}}" class="form-control  mt-2  border border-1 border-dark">
+
+                            </div>
+
+                            <div class="mt-3 mb-3">
+                                <label>Customer-name :</label>
+                                <input type="text" name="customer_name" value="{{r.customer_name}}" class="form-control mt-2 border border-1 border-dark">
+                            </div>
+
+                            <div class="mt-3 mb-3">
+                                <label>Customer-contact :</label>
+                                <input type="number" name="customer_contact" value="{{r.customer_contact}}" class="form-control mt-2 border border-1 border-dark">
+                            </div>
+
+                            <div class="mt-3 mb-3">
+                                <label>Booking-date :</label>
+                                <input type="text" name="booking_date" value="{{r.booking_date}}" class="form-control mt-2 border border-1 border-dark">
+                            </div>
+
+                            <div class="mt-3 mb-3">
+                                <label>Schedule-date :</label>
+                                <input type="text" name="schedule_date" value="{{r.scheduled_date}}" class="form-control mt-2 border border-1 border-dark">
+                            </div>
+
+                            <div class="mt-3 mb-3">
+                                <label>Schedule-Time :</label>
+                                <input type="text" name="schedule_time" value="{{r.scheduled_time}}" class="form-control mt-2 border border-1 border-dark">
+                            </div>
+
+                            <div class="mt-3 mb-3">
+                                <label>Address :</label>
+                                <textarea name="address" class="form-control mt-2 border border-1 border-dark">{{r.address}}</textarea>
+                            </div>
+
+                            <div class="mt-3 mb-3">
+                                <label>no-of-hours :</label>
+                                <input type="number" name="no_of_hours" value="{{r.no_of_hours}}" class="form-control mt-2 border border-1 border-dark">
+                            </div>
+
+                            <div class="mt-3 mb-3">
+                                <label>no-of-days :</label>
+                                <input type="text"  name="no_of_days" value="{{r.no_of_days}}" class="form-control mt-2 border border-1 border-dark">
+                            </div>
+                            <div class="mt-3 mb-3">
+                                <lable>status</lable>
+                                 <input type="text" name="status" value="{{r.status}}" class="form-control  mt-2  border border-1 border-dark">
+                            </div>
+                            <div class="mt-3 mb-3 ">
+                            <button class=" form-input-check btn btn-success" type="submit">Submit</button>
+                        </div>
+
+                        </div>
+                    </div>
+                </form>
+                   {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

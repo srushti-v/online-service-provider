@@ -1,0 +1,50 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Rating Details</h1>
+            <table class="table table-border table-stripped">
+                <thead class="table table-dark">
+                <tr>
+                    <td>#</td>
+                    <td>service</td>
+                    <td>booking</td>
+                    <td>customer-name</td>
+                    <td>rating</td>
+                    <td>review</td>
+                    <td>rated-at</td>
+                    <td>action</td>
+                </tr>
+                </thead>
+                <tbody>
+                      {% for r in data %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{r.service}}</td>
+                    <td>{{r.booking}}</td>
+                    <td>{{r.customer_name}}</td>
+                    <td>{{r.rating}}</td>
+                    <td>{{r.review}}</td>
+                    <td>{{r.rated_at}}</td>
+                    <td>
+                      <a href="{% url 'ratings_del' r.id %}" onclick="return confirm('Are you sure you want to delete this item?');">
+                          delete  </a>
+                    </td>
+                    <td>
+                      <a href="{% url 'ratings_edit' r.id %}" >
+                          edit  </a>
+                    </td>
+                </tr>
+                      {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

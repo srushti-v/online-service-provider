@@ -1,0 +1,17 @@
+{% load static %}
+{% include 'user_header.html' %}
+
+<hr class="border border-2 border-success">
+
+<div class="container mt-5 text-center">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Payment Successful!</h4>
+        <p class="fs-5">Thank you for your payment. Your transaction was completed successfully.</p>
+        <hr>
+        <p class="mb-0">You will receive a confirmation email shortly.</p>
+    </div>
+
+    <a href="{% url 'user_home' %}" class="btn btn-primary mt-4">Go to Dashboard</a>
+</div>
+
+{% include 'footer.html' %}

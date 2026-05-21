@@ -1,0 +1,46 @@
+{% load static %}
+{% include 'admin_header.html' %}
+
+<hr class="border border-2 border-success">
+<div class="container mt-5">
+    <h2 class="mb-4">Service Payment</h2>
+
+
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Booking Id</th>
+                    <th>Payment Date</th>
+                    <th>Paid Amount</th>
+                    <th>Transaction Id</th>
+                    <th>Payment Status</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for service in data %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ service.booking_id  }}</td>
+                    <td>{{ service.payment_date }}</td>
+                    <td>{{ service.amount_paid }}</td>
+                    <td>{{ service.transaction_id }}</td>
+                    <td>{{ service.payment_status }}</td>
+
+                   </tr>
+                {% endfor %}
+
+            <tr class="table-info">
+                <td></td>
+                 <td></td> <td></td>
+                 <td>{{total_amount}}</td>
+                 <td></td>
+                 <td></td>
+
+            </tr>
+            </tbody>
+        </table>
+
+</div>
+{% include 'footer.html' %}

@@ -1,0 +1,41 @@
+{% load static %}
+{% include 'provider_header.html' %}
+<hr>
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Add Service</h4>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+
+
+                <div class="mb-3">
+                    <label for="service_name" class="form-label">Service Name</label>
+                    <input type="text" class="form-select" id="service_name" name="service_name" value="{{service_type}}" required>
+
+                    </input>
+                </div>
+
+                <div class="mb-3">
+                    <label for="service_charge" class="form-label">Min Service Charge</label>
+                    <input type="number" class="form-control" id="service_charge" name="service_charge" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="per_hour_charge" class="form-label">Per Hour Charge (Optional)</label>
+                    <input type="number" class="form-control" id="per_hour_charge" name="per_hour_charge">
+                </div>
+
+                <div class="mb-3">
+                    <label for="per_day_charge" class="form-label">Per Day Charge (Optional)</label>
+                    <input type="number" class="form-control" id="per_day_charge" name="per_day_charge">
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">Add Service</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}

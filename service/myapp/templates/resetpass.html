@@ -1,0 +1,41 @@
+{% load static %}
+{% include 'header.html' %}
+
+<body>
+
+<hr class="border border-1 border-dark">
+
+
+<div class="container d-flex justify-content-center align-items-center vh-70">
+    <div class="card border-success shadow-lg" style="width: 45rem;">
+        <div class="card-body">
+            <h2 class="card-title text-success text-center">Reset Password</h2>
+            <p class="text-danger"> {{msg}}</p>
+            <hr class="border-success">
+             <form method="post">
+                 {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">New Password</label>
+                <input type="number" name="t1" class="form-control border border-1 border-success">
+            </div>
+
+                  <div class="mb-3">
+                <label class="form-label">Confirm Password</label>
+                <input type="number" name="t2" class="form-control border border-1 border-success">
+            </div>
+
+
+
+            <div class="d-grid">
+                <button class="btn btn-success">Reset Password</button>
+            </div>
+             </form>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+{% include 'footer.html' %}
